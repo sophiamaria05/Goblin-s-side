@@ -4,6 +4,7 @@ Eliminate the enemies, collect food, and survive while you can ^^
 
 ## About the game
 Survival game made in Godot during the DIO trail "Santander 2024 - Criando Jogos com Godot"
+This game can be accessed in itch.io as <a href="https://pixelfrog-assets.itch.io/goblins-side"> <strong>Goblin's side</strong> by shoyoo_05</a>
 
 Inspired by _Vampire Survivors_ and _Brotato_
 
