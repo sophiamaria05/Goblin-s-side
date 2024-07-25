@@ -1,9 +1,9 @@
 
 # Goblin's side
-Eliminate the enemies, colect and food, and survive while you can ^^
+Eliminate the enemies, collect food, and survive while you can ^^
 
 ## About the game
-Survival game made in godot during the DIO trail "Santander 2024 - Criando Jogos com Godot"
+Survival game made in Godot during the DIO trail "Santander 2024 - Criando Jogos com Godot"
 
 Inspired by _Vampire Survivors_ and _Brotato_
 
@@ -17,7 +17,7 @@ Inspired by _Vampire Survivors_ and _Brotato_
 - Magic: **Right Mouse Button** or **Q**
 
 ### Third-Party Assets
-For the creation of this game assets that other creators made available online were used. This game only have this face because of the amazing creators of the following assets:
+For the creation of this game assets that other creators made available online were used. This game only has this face because of the amazing creators of the following assets:
 
 - <a href="https://pixelfrog-assets.itch.io/tiny-swords"> <strong>Tiny Swords</strong> by Pixel Frog</a>
 
