@@ -22,3 +22,8 @@ For the creation of this game assets that other creators made available online w
 - <a href="https://pixelfrog-assets.itch.io/tiny-swords"> <strong>Tiny Swords</strong> by Pixel Frog</a>
 
 - <a href="https://kenney.nl/assets/particle-pack"> <strong>Particle Pack</strong> by Kenney</a>
+
+## Screenshots
+![Captura de Tela (352)](https://github.com/user-attachments/assets/0aced935-94dd-4aa4-be4f-400900cc33c6)
+![Captura de Tela (354)](https://github.com/user-attachments/assets/b48b2575-b744-4672-8d93-c367d9ae80d7)
+![Captura de Tela (355)](https://github.com/user-attachments/assets/f7521e0e-86b5-41ae-930b-1a8948c1180f)
