@@ -1,0 +1,92 @@
+[gd_scene load_steps=3 format=3 uid="uid://b56e8a770jfno"]
+
+[ext_resource type="Texture2D" uid="uid://0q535uutancr" path="res://addons/Tiny Swords/Factions/Goblins/Troops/Torch/Blue/Torch_Blue.png" id="1_lkbf1"]
+[ext_resource type="PackedScene" uid="uid://bv81jmcr5orr1" path="res://player/player.tscn" id="2_g2tkq"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-1260, 254)
+
+[node name="TorchBlue" type="Sprite2D" parent="."]
+position = Vector2(329, -731)
+texture = ExtResource("1_lkbf1")
+
+[node name="Table_i" type="Label" parent="TorchBlue"]
+offset_left = -611.0
+offset_top = -560.0
+offset_right = 588.0
+offset_bottom = -483.0
+theme_override_font_sizes/font_size = 56
+text = "0           1           2          3           4           5           6"
+vertical_alignment = 1
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Table_j" type="Label" parent="TorchBlue"]
+offset_left = -715.0
+offset_top = -424.0
+offset_right = -670.0
+offset_bottom = 423.0
+theme_override_font_sizes/font_size = 56
+text = "01234"
+vertical_alignment = 3
+autowrap_mode = 3
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Idle" type="Label" parent="TorchBlue"]
+offset_left = 676.0
+offset_top = -413.0
+offset_right = 744.0
+offset_bottom = -368.0
+theme_override_font_sizes/font_size = 32
+text = "idle"
+vertical_alignment = 1
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Run" type="Label" parent="TorchBlue"]
+offset_left = 674.0
+offset_top = -213.0
+offset_right = 742.0
+offset_bottom = -168.0
+theme_override_font_sizes/font_size = 32
+text = "run"
+vertical_alignment = 1
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Atk_side" type="Label" parent="TorchBlue"]
+offset_left = 674.0
+offset_top = -20.0
+offset_right = 742.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 32
+text = "attack_side"
+vertical_alignment = 1
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Atk_down" type="Label" parent="TorchBlue"]
+offset_left = 676.0
+offset_top = 175.0
+offset_right = 744.0
+offset_bottom = 220.0
+theme_override_font_sizes/font_size = 32
+text = "attack_down"
+vertical_alignment = 1
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Atk_up" type="Label" parent="TorchBlue"]
+offset_left = 674.0
+offset_top = 358.0
+offset_right = 742.0
+offset_bottom = 403.0
+theme_override_font_sizes/font_size = 32
+text = "attack_up"
+vertical_alignment = 1
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_g2tkq")]
+position = Vector2(1772, 83)

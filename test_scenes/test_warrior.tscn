@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv352w3lcnrs1"]
+
+[ext_resource type="PackedScene" uid="uid://bb8a7ktgme8t" path="res://enemis/warrior.tscn" id="1_nk48u"]
+[ext_resource type="PackedScene" uid="uid://bv81jmcr5orr1" path="res://player/player.tscn" id="2_k6qhl"]
+
+[node name="TestPaladin" type="Node2D"]
+
+[node name="Warrior" parent="." instance=ExtResource("1_nk48u")]
+position = Vector2(874, 384)
+
+[node name="Player" parent="." instance=ExtResource("2_k6qhl")]
+position = Vector2(259, 444)
+speed = null
+sword_damage = null
+lerp_weight = null
+atk_speed_percent = null

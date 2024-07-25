@@ -1,0 +1,169 @@
+[gd_scene load_steps=15 format=3 uid="uid://cywt5580adru0"]
+
+[ext_resource type="Script" path="res://enemis/behaviors/enemy.gd" id="1_cdkyt"]
+[ext_resource type="Script" path="res://enemis/behaviors/follow_player.gd" id="1_rvlmv"]
+[ext_resource type="Texture2D" uid="uid://crt8lex25f5gh" path="res://addons/Tiny Swords/Factions/Knights/Troops/Pawn/Red/Pawn_Red.png" id="1_wdbos"]
+[ext_resource type="PackedScene" uid="uid://dkqpyw5f1trq" path="res://misk/gold.tscn" id="2_y5tmd"]
+[ext_resource type="Script" path="res://enemis/behaviors/atk_player.gd" id="5_b62jp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s20c1"]
+radius = 5.0
+
+[sub_resource type="Animation" id="Animation_x554k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_h47sl"]
+resource_name = "atk_side"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AtkPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"deal_damage_to_enemies"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_np4na"]
+resource_name = "run"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8wuqi"]
+_data = {
+"RESET": SubResource("Animation_x554k"),
+"atk_side": SubResource("Animation_h47sl"),
+"run": SubResource("Animation_np4na")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skihf"]
+size = Vector2(65.375, 36)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qk55x"]
+radius = 21.0
+height = 66.5427
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_po1y4"]
+radius = 17.005
+height = 60.1022
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qcevr"]
+radius = 8.0
+height = 120.0
+
+[node name="Pawn" type="CharacterBody2D" groups=["enemies"]]
+y_sort_enabled = true
+motion_mode = 1
+script = ExtResource("1_cdkyt")
+health = 4
+death_prefab = ExtResource("2_y5tmd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -25)
+texture = ExtResource("1_wdbos")
+hframes = 6
+vframes = 6
+frame = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_s20c1")
+debug_color = Color(0, 0.6, 0.701961, 0.12549)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8wuqi")
+}
+autoplay = "run"
+
+[node name="AtkArea" type="Area2D" parent="."]
+position = Vector2(-29, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AtkArea"]
+position = Vector2(29, -27.3125)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_skihf")
+debug_color = Color(1, 0, 0, 0.12549)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AtkArea"]
+position = Vector2(53, -27)
+rotation = -0.541052
+shape = SubResource("CapsuleShape2D_qk55x")
+debug_color = Color(1, 0, 0, 0.12549)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="AtkArea"]
+position = Vector2(65, -24)
+rotation = -0.328122
+shape = SubResource("CapsuleShape2D_po1y4")
+debug_color = Color(1, 0, 0, 0.12549)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="AtkArea"]
+position = Vector2(5, -27)
+rotation = 0.541052
+shape = SubResource("CapsuleShape2D_qk55x")
+debug_color = Color(1, 0, 0, 0.12549)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="AtkArea"]
+position = Vector2(-7, -26)
+rotation = 0.328122
+shape = SubResource("CapsuleShape2D_po1y4")
+debug_color = Color(1, 0, 0, 0.12549)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="AtkArea"]
+position = Vector2(29, -3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qcevr")
+debug_color = Color(1, 0, 0, 0.12549)
+
+[node name="FollowPlayer" type="Node" parent="."]
+script = ExtResource("1_rvlmv")
+speed = 1.0
+
+[node name="AtkPlayer" type="Node" parent="."]
+script = ExtResource("5_b62jp")
+
+[node name="DamageDigitMarker" type="Marker2D" parent="."]
+position = Vector2(0, -53)

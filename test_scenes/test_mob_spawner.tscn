@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1jruahlll883"]
+
+[ext_resource type="PackedScene" uid="uid://bv81jmcr5orr1" path="res://player/player.tscn" id="1_io246"]
+[ext_resource type="PackedScene" uid="uid://bgc65khiw8k8n" path="res://system/mob_spawner.tscn" id="2_88f63"]
+[ext_resource type="Texture2D" uid="uid://eo47sdmwhjd1" path="res://addons/Tiny Swords/UI/Banners/Banner_Horizontal.png" id="3_5bt3n"]
+[ext_resource type="Script" path="res://misk/player_health.gd" id="4_vpruv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2rfjx"]
+texture = ExtResource("3_5bt3n")
+texture_margin_left = 32.0
+texture_margin_top = 8.0
+texture_margin_right = 32.0
+texture_margin_bottom = 40.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(32, 48, 128, 128)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_re1aq"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 0.588235)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eita5"]
+bg_color = Color(1, 0.196078, 0.196078, 1)
+
+[node name="TestMobSpawner" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_io246")]
+position = Vector2(570, 351)
+magic_interval = 45
+
+[node name="MobSpawner" parent="." instance=ExtResource("2_88f63")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 240.0
+offset_bottom = 77.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_2rfjx")
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 2.0
+offset_right = 210.0
+offset_bottom = 35.0
+theme_override_styles/background = SubResource("StyleBoxFlat_re1aq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_eita5")
+value = 45.78
+script = ExtResource("4_vpruv")

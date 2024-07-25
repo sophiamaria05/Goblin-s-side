@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://c76p2hcgjt34b"]
+
+[ext_resource type="Texture2D" uid="uid://c2ej6utuuaokk" path="res://addons/Tiny Swords/Resources/Trees/Tree.png" id="1_skh1n"]
+
+[sub_resource type="Animation" id="Animation_gas8o"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_u1si8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ynfur"]
+_data = {
+"RESET": SubResource("Animation_u1si8"),
+"idle": SubResource("Animation_gas8o")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7un8l"]
+radius = 7.0
+height = 26.0
+
+[node name="Tree" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_skh1n")
+hframes = 4
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_ynfur")
+}
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 70)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7un8l")

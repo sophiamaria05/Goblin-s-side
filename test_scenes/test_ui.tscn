@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbfdwrbggi4bl"]
+
+[ext_resource type="PackedScene" uid="uid://bv81jmcr5orr1" path="res://player/player.tscn" id="1_ianxy"]
+[ext_resource type="PackedScene" uid="uid://pxh0s2wk7hpt" path="res://ui/game_ui.tscn" id="2_hs1pr"]
+[ext_resource type="PackedScene" uid="uid://bmhocdw4lyybs" path="res://enemis/sheep.tscn" id="3_uyfro"]
+[ext_resource type="PackedScene" uid="uid://bb8a7ktgme8t" path="res://enemis/warrior.tscn" id="4_wu22x"]
+[ext_resource type="PackedScene" uid="uid://cywt5580adru0" path="res://enemis/pawn.tscn" id="5_j5qvq"]
+
+[node name="TestUi" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ianxy")]
+position = Vector2(566, 325)
+
+[node name="GameUI" parent="." instance=ExtResource("2_hs1pr")]
+
+[node name="Sheep" parent="." instance=ExtResource("3_uyfro")]
+position = Vector2(312, 315)
+
+[node name="Warrior" parent="." instance=ExtResource("4_wu22x")]
+position = Vector2(1306, 557)
+
+[node name="Pawn" parent="." instance=ExtResource("5_j5qvq")]
+position = Vector2(1275, 315)
+
+[node name="Pawn2" parent="." instance=ExtResource("5_j5qvq")]
+position = Vector2(1082, 461)
+
+[node name="Pawn3" parent="." instance=ExtResource("5_j5qvq")]
+position = Vector2(1151, 624)
